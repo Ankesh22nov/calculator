@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="calculator">
+        <div class="main_div">
+            <div class="result">
+                <input type="text" id="result" readonly>
+            </div>
+            <div class="btns">
+                <div class="row">
+                    <button id="operators" onclick="clearValue()">C</button>
+                    <button id="operators" onclick="ExitValue()">Exit</button>
+                    <button id="operators" onclick="appendValue('%')">%</button>
+                    <button id="operators" onclick="appendValue('/')">/</button>
+                </div>
+                <div class="row">
+                    <button onclick="appendValue('7')">7</button>
+                    <button onclick="appendValue('8')">8</button>
+                    <button onclick="appendValue('9')">9</button>
+                    <button id="operators" onclick="appendValue('*')">*</button>
+                </div>
+                <div class="row">
+                    <button onclick="appendValue('4')">4</button>
+                    <button onclick="appendValue('5')">5</button>
+                    <button onclick="appendValue('6')">6</button>
+                    <button id="operators" onclick="appendValue('+')">+</button>
+                </div>
+                <div class="row">
+                    <button onclick="appendValue('1')">1</button>
+                    <button onclick="appendValue('2')">2</button>
+                    <button onclick="appendValue('3')">3</button>
+                    <button id="operators" onclick="appendValue('-')">-</button>
+                </div>
+                <div class="row">
+                    <button onclick="appendValue('0')">0</button>
+                    <button onclick="appendValue('00')">00</button>
+                    <button onclick="appendValue('.')">.</button>
+                    <button id="operators" onclick="calculate()">=</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const appendValue = (value) => {
+            document.getElementById("result").value += value;
+        }
+        const clearValue = (value) => {
+            document.getElementById("result").value = '';
+        }
+        const ExitValue = () => {
+            let result = document.getElementById("result");
+            result.value = result.value.toString().slice(0, -1)
+        }
+        const calculate = () => {
+            let result = document.getElementById("result");
+            result.value = eval(result.value)
+        };
+    </script>
+</body>
+
+</html>
